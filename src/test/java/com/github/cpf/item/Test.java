@@ -13,7 +13,6 @@ public class Test {
         DicTeacher.State.resigned.label();
     }
 
-
     @org.junit.Test
     public void iDictItemTest() {
         // 假如 Teacher 表 状态 的一个value是30, 需要判断当前值是否代表毕业

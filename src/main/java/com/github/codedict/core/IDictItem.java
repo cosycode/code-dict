@@ -1,8 +1,13 @@
 package com.github.codedict.core;
 
-
 import com.github.codedict.util.StringUtils;
 
+/**
+ * <b>Description : </b>
+ *
+ * @author CPF
+ * @date 2020/3/16
+ **/
 public interface IDictItem {
 
     /**

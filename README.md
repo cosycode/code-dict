@@ -2,27 +2,45 @@
 
 一个简单的通用的数据字典框架
 
+## [sonatype](https://search.maven.org/artifact/com.github.cpfniliu/code-dict/1.0/jar)
+
+1. Apache Maven
+
+    ```xml
+    <dependency>
+      <groupId>com.github.cpfniliu</groupId>
+      <artifactId>code-dict</artifactId>
+      <version>1.0</version>
+    </dependency>
+    ```
+
+2. Gradle Groovy DSL
+
+    ```yml
+    implementation 'com.github.cpfniliu:code-dict:1.0'
+    ```
+
 ## 使用枚举来管理数据字典
 
 假如有两张表(简单一点, 一些非空, 长度什么的就不写了), 两个表都有 `gender` 和 `state` , `gender` 字典项相同, 但 `state` 字典项不同
 
 1. 学生表 Student
 
-        | 字段名(field) | 类型    | 字典项                                              |
-        | ------------- | ------- | --------------------------------------------------- |
-        | stuNo         | INTEGER |                                                     |
-        | name          | VARCHAR |                                                     |
-        | gender        | VARCHAR | 性别 : {男:1, 女:2}                                     |
-        | state         | VARCHAR | 状态 : {未报到:10, 在读:20, 毕业:30, 结业:40, 肄业:50, 退学:60, 开除:70} |
+    | 字段名(field) | 类型    | 字典项                                              |
+    | ------------- | ------- | --------------------------------------------------- |
+    | stuNo         | INTEGER |                                                     |
+    | name          | VARCHAR |                                                     |
+    | gender        | VARCHAR | 性别 : {男:1, 女:2}                                     |
+    | state         | VARCHAR | 状态 : {未报到:10, 在读:20, 毕业:30, 结业:40, 肄业:50, 退学:60, 开除:70} |
 
 2. 教师表 Teacher
 
-        | 字段名(field) | 类型    | 字典项                            |
-        | ------------- | ------- | --------------------------------- |
-        | teaNo         | INTEGER |                                   |
-        | name          | VARCHAR |                                   |
-        | gender        | VARCHAR | 性别 : {男:1, 女:2}                   |
-        | state         | VARCHAR | 状态 : {未报到:10, 在职:20, 离职:30, 开除:40} |
+    | 字段名(field) | 类型    | 字典项                            |
+    | ------------- | ------- | --------------------------------- |
+    | teaNo         | INTEGER |                                   |
+    | name          | VARCHAR |                                   |
+    | gender        | VARCHAR | 性别 : {男:1, 女:2}                   |
+    | state         | VARCHAR | 状态 : {未报到:10, 在职:20, 离职:30, 开除:40} |
 
 然后你就可以分别为两个表建立一个数据字典接口(之所以用接口是因为里面不需要有成员属性), 用来管理数据字典. 相关代码如下
 
@@ -45,7 +63,7 @@ public interface DicStudent {
      */
     enum Gender implements IDictItem {
 
-        MAN("1", "男"), WOMAN("2", "女");
+        man("1", "男"), woman("2", "女");
 
         Gender(String value, String label) {
             StaticDictPool.putDictItem(this, value, label);
@@ -57,13 +75,13 @@ public interface DicStudent {
      */
     enum State implements IDictItem {
 
-        NotReported("10", "未报到"),
-        Reading("20", "在读"),
-        Graduation("30", "毕业"),
-        Defamation("40", "肄业"),
-        Completion ("50", "肄业"),
-        Withdrawal("60", "退学"),
-        Expulsion("70", "开除");
+        notReported("10", "未报到"),
+        reading("20", "在读"),
+        graduation("30", "毕业"),
+        defamation("40", "肄业"),
+        completion ("50", "肄业"),
+        withdrawal("60", "退学"),
+        expulsion("70", "开除");
 
         State(String value, String label) {
             StaticDictPool.putDictItem(this, value, label);
@@ -91,7 +109,7 @@ public interface DicTeacher {
      */
     enum Gender implements IDictItem {
 
-        MAN("1", "男"), WOMAN("2", "女");
+        man("1", "男"), woman("2", "女");
 
         Gender(String value, String label) {
             StaticDictPool.putDictItem(this, value, label);
@@ -103,10 +121,10 @@ public interface DicTeacher {
      */
     enum State implements IDictItem {
 
-        NotReported("10", "未报到"),
-        Work("20", "在职"), 
-        Resigned("30", "离职"), 
-        Expelled("40", "开除");
+        notReported("10", "未报到"),
+        work("20", "在职"),
+        resigned("30", "离职"),
+        expelled("40", "开除");
 
         State(String value, String label) {
             StaticDictPool.putDictItem(this, value, label);
