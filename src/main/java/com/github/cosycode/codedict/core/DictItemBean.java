@@ -1,4 +1,4 @@
-package com.github.codedict.core;
+package com.github.cosycode.codedict.core;
 
 /**
  * <b>Description : </b> 用于存放数据字典的Bean

@@ -1,7 +1,6 @@
-package com.github.cpf.item;
+package com.github.cosycode.stat;
 
-import com.github.codedict.core.IDictItem;
-import com.github.codedict.core.StaticDictPool;
+import com.github.cosycode.codedict.core.IDictItem;
 
 /**
  * <b>Description : </b> 学生数据字典接口
@@ -19,7 +18,7 @@ public interface DicStudent {
         man("1", "男"), woman("2", "女");
 
         Gender(String value, String label) {
-            StaticDictPool.putDictItem(this, value, label);
+            putItemBean(value, label);
         }
     }
 
@@ -37,7 +36,7 @@ public interface DicStudent {
         expulsion("70", "开除");
 
         State(String value, String label) {
-            StaticDictPool.putDictItem(this, value, label);
+            putItemBean(value, label);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.github.codedict.core;
+package com.github.cosycode.codedict.core;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author CPF
  * @date 2019/12/13 19:26
  **/
-public class StaticDictPool {
+class StaticDictPool {
 
     private StaticDictPool() {
     }
@@ -29,8 +29,8 @@ public class StaticDictPool {
     /**
      * 获取静态数据
      */
-    static DictItemBean getDictItem(IDictItem iCodeItem) {
-        return dictItemMap.get(iCodeItem);
+    public static DictItemBean getDictItem(IDictItem iDictItem) {
+        return dictItemMap.get(iDictItem);
     }
 
 }

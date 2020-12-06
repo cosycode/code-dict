@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.cpfniliu</groupId>
+    <groupId>com.github.cosycode</groupId>
     <artifactId>code-dict</artifactId>
     <version>1.1</version>
 
     <name>code-dict</name>
     <description>A simple and universal data dictionary framework</description>
-    <url>http://github.com/CPFniliu/code-dict.git</url>
+    <url>http://github.com/cosycode/code-dict.git</url>
 
     <parent>
         <groupId>org.sonatype.oss</groupId>
@@ -27,9 +27,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git://github.com/CPFniliu/code-dict.git</connection>
-        <developerConnection>scm:git:ssh://github.com:CPFniliu/code-dict.git</developerConnection>
-        <url>http://github.com/CPFniliu/code-dict</url>
+        <connection>scm:git:git://github.com/cosycode/code-dict.git</connection>
+        <developerConnection>scm:git:ssh://github.com:cosycode/code-dict.git</developerConnection>
+        <url>http://github.com/cosycode/code-dict</url>
     </scm>
 
     <developers>
@@ -50,13 +50,13 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <version>1.18.16</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
