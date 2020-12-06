@@ -21,21 +21,36 @@ public class Test {
         DicTeacher.State.notReported.isValue(teaState);  //  false
 
         // 针对 Teacher 表 的 状态 字段,  通过 文本标签:"在职" 获取对应的 数据字典代码
-        System.out.println(DictItems.getValueByLabel(DicTeacher.State.class, "在职"));   // 返回: "20"
+        DictItems.getValueByLabel(DicTeacher.State.class, "在职");   // 返回: "20"
         // 针对 Teacher 表 的 状态 字段,  通过 数据字典代码 获取对应的 文本标签
-        System.out.println(DictItems.getLabelByValue(DicTeacher.State.class, "20"));   // 返回: "在职"
+        DictItems.getLabelByValue(DicTeacher.State.class, "20");   // 返回: "在职"
         // 针对 Teacher 表 的 状态 字段,  通过 文本标签 获取对应的 枚举项
-        System.out.println(DictItems.getByLabel(DicTeacher.State.class, "在职"));   // 返回: DicTeacher.State.work
+        DictItems.getByLabel(DicTeacher.State.class, "在职");   // 返回: DicTeacher.State.work
         // 针对 Teacher 表 的 状态 字段,  通过 数据字典代码 获取对应的 枚举项
-        System.out.println(DictItems.getByValue(DicTeacher.State.class, "20"));   // 返回: DicTeacher.State.work
+        DictItems.getByValue(DicTeacher.State.class, "20");   // 返回: DicTeacher.State.work
     }
-
-    @org.junit.Test
-    public void iDictItemTest2() {
-        System.out.println(DictItems.getValueByLabel(DicTeacher.State.class, "在职"));   // 返回: "20"
-    }
-
-
-
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

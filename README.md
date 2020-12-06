@@ -26,7 +26,7 @@ README [ENGLISH](./README.en.md) | 中文
    
 4. **方便为单个字段添加额外逻辑**, 因为使用的是枚举类, 所以只需要在字段对应的枚举类中添加方法就能很方便的使用和管理字段的处理逻辑.
 
-> 原理: [巧用枚举让字典表的管理和使用变得简单, 优雅](https://blog.csdn.net/u011511756/article/details/88094754)
+> 原理: [巧用枚举让字典表的管理和使用变得简单, 优雅](.doc/principle.md)
 
 ## 集成方式
 
@@ -173,9 +173,40 @@ README [ENGLISH](./README.en.md) | 中文
 
 2. **防止出错, 易于维护**, 因为使用的是枚举, 使用的时候不容易出错, 而且如果改动了字典表的值只需要更改对应的枚举类即可.
 
-3. **统一格式, 增添功能**, 一般来说枚举中都会需要使用到一些统一的方法, 例如通过value获取label, 通过label获取value, 或者多选字段的值转换, 类似于这种统一的方法就可以通过在 `IDictItem` 接口中增删方法来调整整体的功能.
+3. **统一格式, 增添功能**, 一般来说枚举中都会需要使用到一些统一的方法, 例如通过value获取label, 通过label获取value, 或者多选字段的值转换, 类似于这种统一的方法就可以通过在 `DictItems` 中增删方法来调整整体的功能.
 
-    ![枚举的好处-1](./.src/enum-merit-3.png)
+   ```java
+   import com.github.cosycode.codedict.core.DictItems;
+   
+   public class Test {
+   
+       public static void main(String[] args) {
+           // 获取 Student 表 性别 为 男性的 数据字典代码
+           DicStudent.Gender.man.value();
+           // 获取 Teacher 表 状态 表示离职的 数据字典代码
+           DicTeacher.State.resigned.value();
+           // 获取 Teacher 表 状态 表示离职的 文本显示标签
+           DicTeacher.State.resigned.label();
+       }
+   
+       @org.junit.Test
+       public void iDictItemTest() {
+           // 假如 Teacher 表 状态 的一个value是30, 需要判断当前值是否代表毕业
+           String teaState = "30";
+           DicTeacher.State.resigned.isValue(teaState);  //  true
+           DicTeacher.State.notReported.isValue(teaState);  //  false
+   
+           // 针对 Teacher 表 的 状态 字段,  通过 文本标签:"在职" 获取对应的 数据字典代码
+           DictItems.getValueByLabel(DicTeacher.State.class, "在职");   // 返回: "20"
+           // 针对 Teacher 表 的 状态 字段,  通过 数据字典代码 获取对应的 文本标签
+           DictItems.getLabelByValue(DicTeacher.State.class, "20");   // 返回: "在职"
+           // 针对 Teacher 表 的 状态 字段,  通过 文本标签 获取对应的 枚举项
+           DictItems.getByLabel(DicTeacher.State.class, "在职");   // 返回: DicTeacher.State.work
+           // 针对 Teacher 表 的 状态 字段,  通过 数据字典代码 获取对应的 枚举项
+           DictItems.getByValue(DicTeacher.State.class, "20");   // 返回: DicTeacher.State.work
+       }
+   }
+   ```
 
 4. **方便为单个字段添加额外逻辑**, 因为使用的是枚举类, 所以只需要在字段对应的枚举类中添加方法就能很方便的使用和管理字段的处理逻辑.
 
@@ -217,7 +248,7 @@ README [ENGLISH](./README.en.md) | 中文
     }
     ```
 
-## 后续更新计划
+## 后续更新计划(有时间的话)
 
 1. 抽出四个独立的表来维护表信息, 字段信息, 枚举类型, 枚举项.
 2. 建立上述四张表的增删改查维护页面.
