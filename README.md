@@ -2,7 +2,14 @@
 
 README [ENGLISH](./README.en.md) | 中文
 
-[toc]
+## index
+
+* [项目介绍](#项目介绍)
+* [设计思想](#设计思想)
+* [优点简述](#优点简述)
+* [集成方式](#集成方式)
+* [使用方式](#使用方式)
+* [后续更新计划](#后续更新计划(有时间的话))
 
 ## 项目介绍
 
@@ -30,7 +37,7 @@ README [ENGLISH](./README.en.md) | 中文
 
 ## 集成方式
 
-> [sonatype-Repository](https://search.maven.org/artifact/com.github.cosycode/code-dict/1.0/jar)
+> [sonatype-Repository](https://search.maven.org/artifact/com.github.cosycode/code-dict/1.1/jar)
 
 1. Apache Maven
 
