@@ -3,10 +3,12 @@ package com.github.cosycode.codedict.dynamic;
 import java.util.Map;
 
 /**
- * <b>Description : </b>
+ * <b>Description : </b> 缓存抽象类, 便于配置从缓存中获取字典数据
+ * <p>
+ * <b>created in </b> 2019/12/16
  *
  * @author CPF
- * @date 2019/12/16 14:06
+ * @since 1.2
  **/
 public abstract class DictCacheIoHandle {
 

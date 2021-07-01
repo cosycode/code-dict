@@ -4,9 +4,11 @@ import com.github.cosycode.codedict.util.StringUtils;
 
 /**
  * <b>Description : </b>
+ * <p>
+ * <b>created in </b> 2020/3/16
  *
  * @author CPF
- * @date 2020/3/16
+ * @since 1.2
  **/
 public interface IDyDictItem {
 
@@ -36,12 +38,12 @@ public interface IDyDictItem {
         return getItemBean().getLabel();
     }
 
-    default DictItemBean getItemBean(){
+    default DyDictItemBean getItemBean() {
         return ConfigurableDictPool.getItem(this);
     }
 
-    default void putItemBean(String value, String label){
-        ConfigurableDictPool.putItem(this, DictItemBean.of(value, label));
+    default void putItemBean(String value, String label) {
+        ConfigurableDictPool.putItem(this, DyDictItemBean.of(value, label));
     }
 
     default boolean isValue(String value) {

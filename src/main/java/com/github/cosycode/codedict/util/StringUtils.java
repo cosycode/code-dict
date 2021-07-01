@@ -4,10 +4,11 @@ import lombok.NonNull;
 
 /**
  * <b>Description : </b> 简单的字符出处理类
+ * <p>
+ * <b>created in </b> 2020/2/13
  *
  * @author CPF
  * @since 1.0
- * @date 2020/2/13 16:43
  **/
 public class StringUtils {
 

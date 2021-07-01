@@ -8,24 +8,25 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <b>Description : </b>
+ * <p>
+ * <b>created in </b> 2019/12/13
  *
  * @author CPF
- * @date 2019/12/13 10:44
+ * @since 1.2
  **/
 class ConfigurableDictPool {
-
-    private ConfigurableDictPool() {
-    }
 
     /**
      * 用于存储字典数据(String 对应字段标识)
      */
     private static final Map<String, DictTypeBean> typeBeanMap = new ConcurrentHashMap<>();
-
     /**
      * field 和 type 的映射
      */
     private static final Map<String, String> field8Type = new ConcurrentHashMap<>();
+
+    private ConfigurableDictPool() {
+    }
 
     /**
      * map中单例, 防止 typeBeanMap 中建立多个相同类型的 DictTypeBean
@@ -83,12 +84,12 @@ class ConfigurableDictPool {
     /**
      * 往 map 中添加代码项
      */
-    public static void putItem(IDyDictItem iDyDictItem, DictItemBean dictItemBean) {
+    public static void putItem(IDyDictItem iDyDictItem, DyDictItemBean dictItemBean) {
         DictTypeBean dictTypeBean = getFromMap(iDyDictItem);
         dictTypeBean.putDictItemBean(iDyDictItem, dictItemBean);
     }
 
-    public static DictItemBean getItem(IDyDictItem iDyDictItem) {
+    public static DyDictItemBean getItem(IDyDictItem iDyDictItem) {
         DictTypeBean typeByTypeKey = getTypeByTypeKey(iDyDictItem.typeKey());
         return typeByTypeKey == null ? null : typeByTypeKey.getDictItemBean(iDyDictItem);
     }

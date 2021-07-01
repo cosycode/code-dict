@@ -6,23 +6,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * <b>Description : </b>
+ * <b>Description : </b> 用于存放数据字典的工具类
+ * <p>
+ * <b>created in </b> 2020/3/16 11:13
  *
  * @author CPF
- * @date 2020/3/16 11:13
- */
+ * @since 1.0
+ **/
 public class DictItems {
 
-    private DictItems(){}
-
     private static final String SPLIT_SYMBOL = ",";
+
+    private DictItems() {
+    }
 
     /**
      * 通过value来获取enumClass中匹配的枚举对象
      *
      * @param enumClass 枚举类
-     * @param value 代码
-     * @param <T> 模板类型
+     * @param value     代码
+     * @param <T>       模板类型
      * @return 如果 enumClass为空, 返回 null, 否则返回枚举类中第一个匹配value的枚举对象.
      */
     public static <T extends IDictItem> T getByValue(Class<T> enumClass, String value) {
@@ -43,8 +46,8 @@ public class DictItems {
      * 通过label来获取enumClass中匹配的枚举对象
      *
      * @param enumClass 枚举类
-     * @param label 代码
-     * @param <T> 模板类型
+     * @param label     代码
+     * @param <T>       模板类型
      * @return 如果 enumClass为空, 返回 null, 否则返回枚举类中第一个匹配label的枚举对象.
      */
     public static <T extends IDictItem> T getByLabel(Class<T> enumClass, String label) {
@@ -65,8 +68,8 @@ public class DictItems {
      * 通过 value 来获取 label
      *
      * @param enumClass 枚举类
-     * @param value 枚举代码
-     * @param <T> 模板类型
+     * @param value     枚举代码
+     * @param <T>       模板类型
      * @return 如果 value为空
      */
     public static <T extends IDictItem> String getLabelByValue(Class<T> enumClass, String value) {
@@ -84,8 +87,8 @@ public class DictItems {
      * 通过 label 来获取 value
      *
      * @param enumClass 枚举类
-     * @param label 枚举代码
-     * @param <T> 模板类型
+     * @param label     枚举代码
+     * @param <T>       模板类型
      * @return 如果 value为空
      */
     public static <T extends IDictItem> String getValueByLabel(Class<T> enumClass, String label) {
@@ -104,8 +107,8 @@ public class DictItems {
      * 通过value来获取enumClass中匹配的枚举对象
      *
      * @param enumClass 枚举类
-     * @param value 代码
-     * @param <T> 模板类型
+     * @param value     代码
+     * @param <T>       模板类型
      * @return 如果 enumClass为空, 返回 null, 否则返回枚举类中第一个匹配value的枚举对象.
      */
     public static <T extends IDictItem> List<T> getByValueForMulti(Class<T> enumClass, String value) {
@@ -131,8 +134,8 @@ public class DictItems {
      * 通过label来获取enumClass中匹配的枚举对象
      *
      * @param enumClass 枚举类
-     * @param label 代码
-     * @param <T> 模板类型
+     * @param label     代码
+     * @param <T>       模板类型
      * @return 如果 enumClass为空, 返回 null, 否则返回枚举类中第一个匹配label的枚举对象.
      */
     public static <T extends IDictItem> List<T> getByLabelForMulti(Class<T> enumClass, String label) {
@@ -158,8 +161,8 @@ public class DictItems {
      * 通过 value 来获取 label
      *
      * @param enumClass 枚举类
-     * @param value 枚举代码
-     * @param <T> 模板类型
+     * @param value     枚举代码
+     * @param <T>       模板类型
      * @return 如果 value为空
      */
     public static <T extends IDictItem> String getLabelByValueForMulti(Class<T> enumClass, String value) {
@@ -177,8 +180,8 @@ public class DictItems {
      * 通过 label 来获取 value
      *
      * @param enumClass 枚举类
-     * @param label 枚举代码
-     * @param <T> 模板类型
+     * @param label     枚举代码
+     * @param <T>       模板类型
      * @return 如果 value为空
      */
     public static <T extends IDictItem> String getValueByLabelForMulti(Class<T> enumClass, String label) {

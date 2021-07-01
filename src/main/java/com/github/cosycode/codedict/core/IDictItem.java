@@ -3,18 +3,20 @@ package com.github.cosycode.codedict.core;
 import com.github.cosycode.codedict.util.StringUtils;
 
 /**
- * <b>Description : </b>
+ * <b>Description : </b> 数据字典枚举接口
+ * <p>
+ * <b>created in </b> 2020/3/16
  *
  * @author CPF
- * @date 2020/3/16
+ * @since 1.0
  **/
 public interface IDictItem {
 
-    default void putItemBean(String value, String label){
+    default void putItemBean(String value, String label) {
         StaticDictPool.putDictItem(this, value, label);
     }
 
-    default DictItemBean getItemBean(){
+    default DictItemBean getItemBean() {
         return StaticDictPool.getDictItem(this);
     }
 
