@@ -1,5 +1,6 @@
 package com.github.cosycode.codedict.dynamic;
 
+import com.github.cosycode.codedict.core.DictItemBean;
 import com.github.cosycode.codedict.util.StringUtils;
 import lombok.NonNull;
 
@@ -43,15 +44,10 @@ class ConfigurableDictPool {
             dictTypeBean = typeBeanMap.computeIfAbsent(fieldKey, key -> new DictTypeBean(typeKey));
         }
         // 添加 field -> typeBean 映射
-        if (!field8Type.containsKey(fieldKey)) {
-            field8Type.put(fieldKey, typeKey);
-        }
+        field8Type.computeIfAbsent(fieldKey, key -> typeKey);
         return dictTypeBean;
     }
 
-    /**
-     * @param map
-     */
     public static void putFieldTypeMap(Map<String, DictTypeBean> map) {
         map.forEach(ConfigurableDictPool::putField8Type);
     }
@@ -84,12 +80,12 @@ class ConfigurableDictPool {
     /**
      * 往 map 中添加代码项
      */
-    public static void putItem(IDyDictItem iDyDictItem, DyDictItemBean dictItemBean) {
+    public static void putItem(IDyDictItem iDyDictItem, DictItemBean dictItemBean) {
         DictTypeBean dictTypeBean = getFromMap(iDyDictItem);
         dictTypeBean.putDictItemBean(iDyDictItem, dictItemBean);
     }
 
-    public static DyDictItemBean getItem(IDyDictItem iDyDictItem) {
+    public static DictItemBean getItem(IDyDictItem iDyDictItem) {
         DictTypeBean typeByTypeKey = getTypeByTypeKey(iDyDictItem.typeKey());
         return typeByTypeKey == null ? null : typeByTypeKey.getDictItemBean(iDyDictItem);
     }

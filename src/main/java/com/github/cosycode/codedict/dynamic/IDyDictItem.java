@@ -1,5 +1,6 @@
 package com.github.cosycode.codedict.dynamic;
 
+import com.github.cosycode.codedict.core.DictItemBean;
 import com.github.cosycode.codedict.util.StringUtils;
 
 /**
@@ -38,12 +39,12 @@ public interface IDyDictItem {
         return getItemBean().getLabel();
     }
 
-    default DyDictItemBean getItemBean() {
+    default DictItemBean getItemBean() {
         return ConfigurableDictPool.getItem(this);
     }
 
     default void putItemBean(String value, String label) {
-        ConfigurableDictPool.putItem(this, DyDictItemBean.of(value, label));
+        ConfigurableDictPool.putItem(this, DictItemBean.of(value, label));
     }
 
     default boolean isValue(String value) {

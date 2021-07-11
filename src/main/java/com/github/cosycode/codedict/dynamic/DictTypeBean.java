@@ -1,5 +1,6 @@
 package com.github.cosycode.codedict.dynamic;
 
+import com.github.cosycode.codedict.core.DictItemBean;
 import lombok.Getter;
 
 import java.util.Collection;
@@ -26,25 +27,25 @@ public class DictTypeBean {
      * 存放字典项数据(key为数据字典项的name属性, )
      */
     @Getter
-    private final Map<String, DyDictItemBean> itemMap;
+    private final Map<String, DictItemBean> itemMap;
 
     public DictTypeBean(String typeKey) {
         this(typeKey, new ConcurrentHashMap<>());
     }
-    public DictTypeBean(String typeKey, Map<String, DyDictItemBean> itemMap) {
+    public DictTypeBean(String typeKey, Map<String, DictItemBean> itemMap) {
         this.typeKey = typeKey;
         this.itemMap = itemMap;
     }
 
-    public void putDictItemBean(IDyDictItem dictItem, DyDictItemBean dictItemBean) {
+    public void putDictItemBean(IDyDictItem dictItem, DictItemBean dictItemBean) {
         itemMap.put(dictItem.name(), dictItemBean);
     }
 
-    public DyDictItemBean getDictItemBean(IDyDictItem dictItem) {
+    public DictItemBean getDictItemBean(IDyDictItem dictItem) {
         return itemMap.get(dictItem.name());
     }
 
-    public Collection<DyDictItemBean> listItem() {
+    public Collection<DictItemBean> listItem() {
         return itemMap.values();
     }
 
