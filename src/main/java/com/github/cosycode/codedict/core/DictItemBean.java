@@ -1,12 +1,17 @@
 package com.github.cosycode.codedict.core;
 
 /**
- * <b>Description : </b> 用于存放数据字典的Bean
+ * <b>Description : </b> 用于存放数据字典的单个项对应的Bean
+ * <p>
+ * <b>created in </b> 2019/12/13 10:43
  *
  * @author CPF
- * @date 2019/12/13 10:43
+ * @since 1.0
  **/
 public class DictItemBean {
+
+    private String value;
+    private String label;
 
     public static DictItemBean of(String value, String label) {
         final DictItemBean dictItemBean = new DictItemBean();
@@ -14,10 +19,6 @@ public class DictItemBean {
         dictItemBean.setLabel(label);
         return dictItemBean;
     }
-
-    private String value;
-
-    private String label;
 
     public String getValue() {
         return value;

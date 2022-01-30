@@ -1,5 +1,6 @@
 package com.github.cosycode.codedict.dynamic;
 
+import com.github.cosycode.codedict.core.DictItemBean;
 import com.github.cosycode.codedict.util.StringUtils;
 import lombok.NonNull;
 
@@ -8,24 +9,25 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <b>Description : </b>
+ * <p>
+ * <b>created in </b> 2019/12/13
  *
  * @author CPF
- * @date 2019/12/13 10:44
+ * @since 1.2
  **/
 class ConfigurableDictPool {
-
-    private ConfigurableDictPool() {
-    }
 
     /**
      * 用于存储字典数据(String 对应字段标识)
      */
     private static final Map<String, DictTypeBean> typeBeanMap = new ConcurrentHashMap<>();
-
     /**
      * field 和 type 的映射
      */
     private static final Map<String, String> field8Type = new ConcurrentHashMap<>();
+
+    private ConfigurableDictPool() {
+    }
 
     /**
      * map中单例, 防止 typeBeanMap 中建立多个相同类型的 DictTypeBean
@@ -42,15 +44,10 @@ class ConfigurableDictPool {
             dictTypeBean = typeBeanMap.computeIfAbsent(fieldKey, key -> new DictTypeBean(typeKey));
         }
         // 添加 field -> typeBean 映射
-        if (!field8Type.containsKey(fieldKey)) {
-            field8Type.put(fieldKey, typeKey);
-        }
+        field8Type.computeIfAbsent(fieldKey, key -> typeKey);
         return dictTypeBean;
     }
 
-    /**
-     * @param map
-     */
     public static void putFieldTypeMap(Map<String, DictTypeBean> map) {
         map.forEach(ConfigurableDictPool::putField8Type);
     }

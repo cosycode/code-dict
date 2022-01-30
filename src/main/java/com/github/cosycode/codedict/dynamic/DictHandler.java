@@ -1,13 +1,19 @@
 package com.github.cosycode.codedict.dynamic;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 import java.util.Map;
 
 /**
- * <b>Description : </b>
+ * <b>Description : </b> 缓存字典操作类
+ * <p>
+ * <b>created in </b> 2019/12/13
  *
  * @author CPF
- * @date 2019/12/13 16:31
+ * @since 1.2
  **/
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DictHandler {
 
     private static DictDbIoHandle dbIoHandle;
@@ -26,22 +32,14 @@ public class DictHandler {
         initDictCachePool();
     }
 
-    public static boolean isLatestInCache(String fieldKey) {
-        return false;
-    }
-
-    public static boolean isLatestInPool(String fieldKey) {
-        return false;
-    }
-
     /**
      * 初始化代码项池,
      * 初始时查出所有代码项, 将其put到池里面
      */
     private static void initDictCachePool() {
-        Map<String, DictTypeBean> map = null;
-        // 通过时间判断redis里面数据是否完整;
+        Map<String, DictTypeBean> map;
 
+        // 通过时间判断redis里面数据是否完整;
         if (cacheIoHandle != null && cacheIoHandle.existDictData()) {
             map = cacheIoHandle.readAllFromCache();
         } else {
@@ -57,7 +55,7 @@ public class DictHandler {
             }
         }
         if (map == null || map.isEmpty()) {
-//            log.warn("未获取到数据");
+            // log.warn("未获取到数据");
         }
         // 塞入pool
         ConfigurableDictPool.putFieldTypeMap(map);

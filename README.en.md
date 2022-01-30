@@ -1,6 +1,6 @@
 # code-dict
 
-README [ENGLISH](./README.en.md) | 中文
+README ENGLISH | [中文](./README.md)
 
 ## index
 
